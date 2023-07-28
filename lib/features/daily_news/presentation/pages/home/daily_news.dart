@@ -6,6 +6,8 @@ import 'package:newscleanapp/features/daily_news/presentation/bloc/article/remot
 
 import '../../../domain/entities/article.dart';
 import '../../widgets/article_tile.dart';
+import '../article_detail/article_detail.dart';
+import '../saved_article/saved_article.dart';
 
 class DailyNews extends StatelessWidget {
   const DailyNews({ Key? key }) : super(key: key);
@@ -64,11 +66,11 @@ class DailyNews extends StatelessWidget {
   }
 
   void _onArticlePressed(BuildContext context, ArticleEntity article, int index) {
-    Navigator.pushNamed(context, '/ArticleDetails', arguments: [article, index]);
+    Navigator.pushNamed(context, ArticleDetailsView.route, arguments: [article, index]);
   }
 
   void _onShowSavedArticlesViewTapped(BuildContext context) {
-    Navigator.pushNamed(context, '/SavedArticles');
+    Navigator.pushNamed(context, SavedArticles.route);
   }
   
 }

@@ -8,8 +8,8 @@ import '../../bloc/article/local/local_article_bloc.dart';
 import '../../bloc/article/local/local_article_event.dart';
 
 class ArticleDetailsView extends HookWidget {
-  final ArticleEntity ? article;
-
+  final ArticleEntity? article;
+  static const route = '/ArticleDetails';
   const ArticleDetailsView({Key? key, this.article}) : super(key: key);
 
   @override
@@ -96,7 +96,7 @@ class ArticleDetailsView extends HookWidget {
     );
   }
 
-    Widget _buildFloatingActionButton() {
+  Widget _buildFloatingActionButton() {
     return Builder(
       builder: (context) => FloatingActionButton(
         onPressed: () => _onFloatingActionButtonPressed(context),
@@ -109,9 +109,8 @@ class ArticleDetailsView extends HookWidget {
     Navigator.pop(context);
   }
 
-  
   void _onFloatingActionButtonPressed(BuildContext context) {
-    BlocProvider.of < LocalArticleBloc > (context).add(SaveArticle(article!));
+    BlocProvider.of<LocalArticleBloc>(context).add(SaveArticle(article!));
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         backgroundColor: Colors.black,
@@ -119,5 +118,4 @@ class ArticleDetailsView extends HookWidget {
       ),
     );
   }
-
 }
