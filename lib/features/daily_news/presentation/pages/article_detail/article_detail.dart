@@ -10,8 +10,8 @@ import '../../bloc/article/local/local_article_event.dart';
 class ArticleDetailsView extends HookWidget {
   final ArticleEntity? article;
   static const route = '/ArticleDetails';
-  const ArticleDetailsView({Key? key, this.article}) : super(key: key);
-
+  const ArticleDetailsView({Key? key, this.article, this.index}) : super(key: key);
+  final int? index;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
